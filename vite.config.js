@@ -3,5 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/coreengineering/',
+  // VITE_BASE_URL is injected by CI per platform.
+  // GitHub Pages: /coreengineering/   Vercel / Cloud Run: /  (default)
+  base: process.env.VITE_BASE_URL ?? '/',
 })
